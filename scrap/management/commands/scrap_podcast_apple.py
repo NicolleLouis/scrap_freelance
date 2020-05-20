@@ -3,9 +3,9 @@ import string
 from bs4 import BeautifulSoup
 
 from django.core.management.base import BaseCommand
-from apple_podcast.service.scrapper import ScrapperService
-from apple_podcast.service.url import UrlService
-from apple_podcast.repository.podcast import PodcastRepository
+from scrap.service.scrapper import ScrapperService
+from scrap.service.url import UrlService
+from scrap.repository.item import PodcastRepository
 
 base_url = "https://podcasts.apple.com/fr/genre/podcasts-arts-livres/id1482"
 

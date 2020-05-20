@@ -1,4 +1,4 @@
-from apple_podcast.models.podcast import Podcast
+from scrap.models.item import Podcast
 
 
 class PodcastRepository:

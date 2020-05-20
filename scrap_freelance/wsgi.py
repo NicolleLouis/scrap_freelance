@@ -1,5 +1,5 @@
 """
-WSGI config for scrap_podcast project.
+WSGI config for scrap_freelance project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'scrap_podcast.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'scrap_freelance.settings')
 
 application = get_wsgi_application()
