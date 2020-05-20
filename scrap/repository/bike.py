@@ -14,3 +14,7 @@ class BikeRepository:
             year=year
         )
         return podcast, _created
+
+    @staticmethod
+    def get_unscrapped_bikes():
+        return list(Bike.objects.filter(is_scrapped=False))
