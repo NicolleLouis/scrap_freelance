@@ -36,11 +36,8 @@ class Bike(models.Model):
 
 class BikeAdmin(ImportExportModelAdmin):
     list_display = (
-        "is_scrapped",
-        "page_url",
-        "picture_url",
-        "brand",
         "name",
+        "brand",
         "year",
         "category",
     )
