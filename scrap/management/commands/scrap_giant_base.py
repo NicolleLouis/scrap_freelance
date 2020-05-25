@@ -5,8 +5,14 @@ from django.core.management.base import BaseCommand
 from scrap.service.url import UrlService
 from scrap.repository.bike import BikeRepository
 
-base_url = "https://www.giant-bicycles.com/fr"
-brand = "Giant"
+# Giant settings
+# base_url = "https://www.giant-bicycles.com"
+# brand = "Giant"
+
+# Liv settings
+base_url = "https://www.liv-cycling.com"
+brand = "Liv"
+
 categories = [
     "route",
     "ville",
@@ -33,8 +39,10 @@ class Command(BaseCommand):
             brand=brand,
             year=year
         )
-        bike_db.page_url = "https://www.giant-bicycles.com{}" \
-            .format(bike.find("article").find("picture").find("a")["href"])
+        bike_db.page_url = "{}{}".format(
+            base_url,
+            bike.find("article").find("picture").find("a")["href"]
+        )
         bike_db.picture_url = bike.find("article"). \
             find("picture").find("a").find("img")["src"]
         bike_db.category = category

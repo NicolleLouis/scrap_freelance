@@ -5,6 +5,13 @@ from django.core.management.base import BaseCommand
 from scrap.repository.bike import BikeRepository
 from scrap.service.string_formatter import StringFormatterService
 
+# Giant settings
+# base_url = "https://www.giant-bicycles.com"
+# brand = "Giant"
+
+# Liv settings
+base_url = "https://www.liv-cycling.com"
+brand = "Liv"
 
 class Command(BaseCommand):
     help = 'Scrap giant base page'
@@ -82,8 +89,10 @@ class Command(BaseCommand):
                 brand=brand,
                 year=year
             )
-            bike_db.page_url = "https://www.giant-bicycles.com{}" \
-                .format(tile.find("article").find("picture").find("a")["href"])
+            bike_db.page_url = "{}{}" .format(
+                base_url,
+                tile.find("article").find("picture").find("a")["href"]
+            )
             bike_db.picture_url = tile \
                 .find("article") \
                 .find("picture") \
