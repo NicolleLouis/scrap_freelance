@@ -26,13 +26,26 @@ class Command(BaseCommand):
                 print("done simple bike")
 
     @staticmethod
-    def manage_simple_bike_page(soup, unscrapped_bike):
+    def set_price(soup, unscrapped_bike):
         price = soup.find(
             "meta",
             {"property": "product:price:amount"}
         )["content"]
         if price is not None and price.isnumeric():
             unscrapped_bike.price = int(price)
+        if unscrapped_bike.price is None:
+            price = soup.find(
+                "div",
+                {"class": "price"}
+            ).find("p")
+            if price.find("span", {"class": "oldprice"}) is not None:
+                price = price.find("span", {"class": "oldprice"})
+            price = StringFormatterService.format_price(price.text)
+            unscrapped_bike.price = price
+        unscrapped_bike.save()
+
+    def manage_simple_bike_page(self, soup, unscrapped_bike):
+        self.set_price(soup, unscrapped_bike)
         specification = soup.find("div", {"id": "specifications"})
         tables = specification.find_all("table") if specification is not None else []
         for table in tables:

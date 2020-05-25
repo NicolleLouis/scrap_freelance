@@ -9,3 +9,12 @@ class StringFormatterService:
         field = field.replace("è", "e")
         field = field.replace("î", "i")
         return field
+
+    @staticmethod
+    def format_price(raw_price):
+        price = raw_price.replace("€", "")
+        price = ''.join(price.split())
+        if price.isnumeric():
+            return int(price)
+        else:
+            return None
