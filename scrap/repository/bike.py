@@ -18,3 +18,7 @@ class BikeRepository:
     @staticmethod
     def get_unscrapped_bikes():
         return list(Bike.objects.filter(is_scrapped=False))
+
+    @staticmethod
+    def get_bikes():
+        return list(Bike.objects.all())

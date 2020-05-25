@@ -19,8 +19,11 @@ class Command(BaseCommand):
             # Find if the product is alone or not
             if soup.find("div", {"id": "productsContainer"}) is not None:
                 self.manage_multiple_bike_pages(soup, unscrapped_bike)
+                print("done multiple bike")
             else:
+                print(unscrapped_bike.page_url)
                 self.manage_simple_bike_page(soup, unscrapped_bike)
+                print("done simple bike")
 
     @staticmethod
     def manage_simple_bike_page(soup, unscrapped_bike):
@@ -37,6 +40,13 @@ class Command(BaseCommand):
             for element in elements:
                 field = element.find("th").text
                 value = element.find("td").text
+                if not hasattr(
+                        unscrapped_bike,
+                        StringFormatterService.format_field(field)
+                ):
+                    if "garde_boue___chaine" != StringFormatterService.format_field(field):
+                        print(StringFormatterService.format_field(field))
+                        raise SystemError
                 setattr(
                     unscrapped_bike,
                     StringFormatterService.format_field(field),

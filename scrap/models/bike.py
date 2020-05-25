@@ -133,6 +133,38 @@ class Bike(models.Model):
         null=True,
         blank=True
     )
+    moteur = models.TextField(
+        null=True,
+        blank=True
+    )
+    capteurs = models.TextField(
+        null=True,
+        blank=True
+    )
+    console = models.TextField(
+        null=True,
+        blank=True
+    )
+    batterie = models.TextField(
+        null=True,
+        blank=True
+    )
+    eclairage = models.TextField(
+        null=True,
+        blank=True
+    )
+    anti_vol = models.TextField(
+        null=True,
+        blank=True
+    )
+    porte_bagages = models.TextField(
+        null=True,
+        blank=True
+    )
+    consolle = models.TextField(
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
         return "{}, finished = {}".format(self.name, self.is_scrapped)
@@ -145,4 +177,5 @@ class BikeAdmin(ImportExportModelAdmin):
         "year",
         "price",
         "category",
+        "is_scrapped",
     )
