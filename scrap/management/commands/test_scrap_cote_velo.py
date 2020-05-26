@@ -12,4 +12,6 @@ class Command(BaseCommand):
         url = "https://cote-velo.fr/resultat-de-l-estimation"
         request = requests.get(url)
         soup = BeautifulSoup(request.text, 'html.parser')
-        print(soup)
+        modals = soup.find_all("div", {"class": "modal-content"})
+        for modal in modals:
+            print(modal)
