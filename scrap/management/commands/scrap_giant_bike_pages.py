@@ -6,12 +6,13 @@ from scrap.repository.bike import BikeRepository
 from scrap.service.string_formatter import StringFormatterService
 
 # Giant settings
-# base_url = "https://www.giant-bicycles.com"
-# brand = "Giant"
+base_url = "https://www.giant-bicycles.com"
+brand = "Giant"
 
-# Liv settings
-base_url = "https://www.liv-cycling.com"
-brand = "Liv"
+# # Liv settings
+# base_url = "https://www.liv-cycling.com"
+# brand = "Liv"
+
 
 class Command(BaseCommand):
     help = 'Scrap giant base page'
