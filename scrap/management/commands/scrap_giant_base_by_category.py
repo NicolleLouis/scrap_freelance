@@ -41,7 +41,7 @@ class Command(BaseCommand):
         )
 
     def scrap_one_category(self, category):
-        url = UrlService.concatenate_page_and_category(base_url, category)
+        url = UrlService.giant_concatenate_page_and_category(base_url, category)
         request = requests.get(url)
         soup = BeautifulSoup(request.text, 'html.parser')
         list_bike = soup.find_all("div", {"class": "tile"})

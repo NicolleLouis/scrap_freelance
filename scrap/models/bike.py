@@ -165,6 +165,38 @@ class Bike(models.Model):
         null=True,
         blank=True
     )
+    gamme = models.TextField(
+        null=True,
+        blank=True
+    )
+    pratique = models.TextField(
+        null=True,
+        blank=True
+    )
+    debattement = models.TextField(
+        null=True,
+        blank=True
+    )
+    roues = models.TextField(
+        null=True,
+        blank=True
+    )
+    infos = models.TextField(
+        null=True,
+        blank=True
+    )
+    suspension = models.TextField(
+        null=True,
+        blank=True
+    )
+    diametre_roues = models.TextField(
+        null=True,
+        blank=True
+    )
+    affichage = models.TextField(
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
         return "{}, finished = {}".format(self.name, self.is_scrapped)

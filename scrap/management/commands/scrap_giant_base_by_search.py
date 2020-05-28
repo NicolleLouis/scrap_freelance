@@ -83,7 +83,7 @@ class Command(BaseCommand):
         )
 
     def scrap_one_search_term(self, research_term):
-        url = UrlService.concatenate_page_and_research_term(base_url, research_term)
+        url = UrlService.giant_concatenate_page_and_research_term(base_url, research_term)
         request = requests.get(url)
         soup = BeautifulSoup(request.text, 'html.parser')
         list_bike = soup.find_all("div", {"class": "tile"})

@@ -8,12 +8,12 @@ class BikeRepository:
             brand,
             year
     ):
-        podcast, _created = Bike.objects.get_or_create(
+        bike, _created = Bike.objects.get_or_create(
             name=name,
             brand=brand,
             year=year
         )
-        return podcast, _created
+        return bike, _created
 
     @staticmethod
     def get_unscrapped_bikes():

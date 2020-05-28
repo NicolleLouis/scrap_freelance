@@ -7,6 +7,7 @@ class CoteVeloSpider(scrapy.Spider):
 
     def parse(self, response):
         filename = "cote_velo"
+
         with open(filename, 'wb') as f:
             f.write(response.body)
         self.log('Saved file %s' % filename)
